@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Elec-G Accueil{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+<!--Bannière avec message d'accueil-->
+<div class="row banner">
+  <div class="col banner-text banner-overlay">
+    <h1 class="col text-center mt-4 text-light">Bienvenue sur Elec-G.fr !!</h1>
+    <p class="col text-light text-center">Les devis sont gratuits !!</p>
+  </div>
+</div>
+
+<!--Section de présentation de la société-->
+<section id="prestation" class="row bg-light text-dark">
+  <div class="col-12 banner-overlay mb-2">
+    <h2 class="text-center my-3">Mes prestations</h2>
+    <p class="text-center">Voici un aperçu des prestations proposées par Elec-G</p>
+  </div>
+    <div class="col">
+        <!--Présentations des prestations sous forme de carte Bootstrap-->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <div class="col mb-3">
+              <div class="card bg-dark text-white">
+                <img src="images/boulangerie.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h3 class="card-title text-center">Installation</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda libero qui deleniti quasi sunt dolores cupiditate modi? Excepturi, omnis accusamus rerum at facere veniam quaerat odio incidunt optio. Natus, corrupti.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div class="card bg-dark text-white">
+                <img src="images/compteur_electrique.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h3 class="card-title text-center">Rénovation</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit atque tenetur doloremque error facere nobis dolor, soluta non molestias fuga quia placeat blanditiis quam optio. Ratione delectus voluptatibus nisi?</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div class="card bg-dark text-white">
+                <img src="images/lampe.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h3 class="card-title text-center">Dépannage</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+                <div class="card bg-dark text-white">
+                  <img src="images/Motorisation-Portail-Battant-BSR-002.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h3 class="card-title text-center">Automatisme</h3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
+                  </div>
+                </div>
+            </div>
+            <div class="col mb-3">
+              <div class="card bg-dark text-white">
+                <img src="images/smart-home-3920905_1920.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h3 class="card-title text-center">Domotique</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div class="card bg-dark text-white">
+                <img src="images/cctv-4440994_1920.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h3 class="card-title text-center">Télésurveillance</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <div class="card bg-dark text-white">
+                <img src="images/audience-1850022_1920.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h3 class="card-title text-center">Location de boîtiers, Evênementiel, Mariages</h3>
+                  <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section des avis-->
+<section id="avis" class="row text-light">
+  <div class="col-12">
+    <h2 class="text-center mb-5">Quelques avis</h2>
+      {% for opinion in opinions %}
+      <div class="card border-info mb-3 col-lg-6 offset-lg-3 col-md-12">
+        <div class="card-header">
+          <p class="text-info"><i class="fas fa-user mx-1"></i> {{ opinion.author.firstname }} {{ opinion.author.lastname }}</p>
+          <p class="text-primary"><strong class="text-info">{{ opinion.mark }}</strong>/5</p>
+        </div>
+        <div class="card-body text-info">
+          <h3 class="card-title">{{ opinion.title }}</h3>
+          <p class="card-text">{{ opinion.content|purify }}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="my-3 text-center">
+        <div class="d-inline-block">
+            {# Affichage du menu permettant de naviguer entre les différentes pages #}
+            {{ knp_pagination_render(opinions) }}
+        </div>
+    </div>
+    <!--<a class="col-sm-4 offset-sm-4 col-md-2 offset-md-5 btn btn-primary" href="">Voir tous les avis</a>-->
+    <hr>
+  </div>
+  <div class="col-12 block-overlay">
+    <h2 class="text-center">Donnez votre avis</h2>
+    <div class="col-lg-6 offset-lg-3 col-md-12">
+      {{form(opinionForm)}}
+    </div>
+  </div>
+</section>
+{% endblock %}
