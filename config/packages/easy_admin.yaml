@@ -13,6 +13,7 @@ easy_admin:
         menu:       # Paramétrage du menu de gauche
             - { label: 'Revenir au site', route: 'accueil', icon: 'link'}     # Création d'un lien permettant de revenir sur le site sur l'accueil
             - User      # Affiche le menu principal pour l'entité "User" (on pourrait en mettre d'autres pour d'autres entités du site)
+            - Opinion
     entities:       # Paramétrage de la gestion des entités du site par easyadmin
         User:       # Paramétrage de l'entité User
             class: App\Entity\User      # Classe de l'entité User
@@ -25,8 +26,6 @@ easy_admin:
                     - {property: 'firstname', label: 'Prénom'}
                     - {property: 'lastname', label: 'Nom de famille'}
                     - {property: 'email', type: 'email', label: 'Adresse Email'}
-                    - {property: 'postal_address', label: 'Adresse postale'}
-                    - {property: 'postal_code', label: 'Code postal'}
                     - {property: 'verified', label: 'Email confirmé'}
             edit:   # Paramétrage de l'onglet de modification d'un utilisateur
                 title: 'Modifier un utilisateur'    # Titre de l'onglet
@@ -34,12 +33,17 @@ easy_admin:
                     - {property: 'email', type: 'email', label: 'Adresse Email'}
                     - {property: 'firstname', label: 'Prénom'}
                     - {property: 'lastname', label: 'Nom de famille'}
-                    - {property: 'postal_address', label: 'Adresse postale'}
-                    - {property: 'postal_code', label: 'Code postal'}
                     - {property: 'verified', label: 'Email confirmé'}
-            new:    # Paramétrage de l'onglet d'ajout d'un utilisateur
-                title: 'Créer un nouveau compte'    # Titre de l'onglet
-                fields:     # Paramétrage des champs qui seront affichés dans le formulaire de création, ainsi que leur type et leur label
-                    - {property: 'email', type: 'email', label: 'Adresse Email'}
-                    - {property: 'password', type: 'password', label: 'Mot de passe'}
-                    - {property: 'verified', label: 'Email confirmé'}
+        Opinion:
+            class: App\Entity\Opinion
+            label: 'Avis'
+            list:
+                title: 'Liste des avis'
+                sort: ['publicationDate', DESC]
+                fields:
+                    - {property: 'id', label: 'ID'}
+                    - {property: 'author', label: 'Auteur'}
+                    - {property: 'title', label: 'Titre'}
+                    - {property: 'mark' , label: 'Note'}
+                    - {property: 'content', label: 'Contenu'}
+                    - {property: 'publicationDate', label: 'Date'}

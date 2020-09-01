@@ -1,47 +1,30 @@
+{% set currentRoute = app.request.attributes.get('_route') %}
 <!DOCTYPE html>
-<html>
+<html lang="fr-FR">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}{% endblock %}</title>
+        <title>Elec-G {% block title %}{% endblock %}</title>
         <!--Inclusions des fichiers CSS-->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <!--Inclusion du fichier CSS minifié de Bootstrap-->
         <link rel="stylesheet" href="{{ asset('css/Bootstrap-css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         <div class="container-fluid">
             <!--Navbar-->
-            <nav class="row navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="{{path('accueil')}}">Elec-G</a>
+            <nav class="row navbar navbar-expand-lg navbar-dark bg-elec-g">
+                <a class="links navbar-brand" href="{{path('accueil')}}">Elec-G</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Mes devis</a>
+                        <li class="nav-item{{ currentRoute == 'contactez_nous' ? ' active' : '' }}">
+                            <a class="links nav-link" href="{{ path('contactez_nous') }}" tabindex="-1" aria-disabled="true">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Mes factures</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html" tabindex="-1" aria-disabled="true">Contact</a>
-                        </li>
-                    <!--<li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>-->
-
                     </ul>
                     <ul class="navbar-nav my-2 my-lg-0">
                         {# Boutons si l'utilisateur est connecté #}
@@ -54,10 +37,10 @@
                             <div class="dropdown-menu" aria-labelledby="profil-dropdown">
                                 {# Bouton vers l'administration si l'utilisateur possède le rôle admin #}
                                 {% if is_granted('ROLE_ADMIN') %}
-                                    <a class="text-danger dropdown-item" href="{{ path('easyadmin') }}"><i class="fas fa-tools mr-1"></i>Administration</a>
+                                    <a class="links text-danger dropdown-item" href="{{ path('easyadmin') }}"><i class="fas fa-tools mr-1"></i>Administration</a>
                                 {% endif %}
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt mr-1"></i>Déconnexion</a>
+                                <a class="links dropdown-item" href="{{ path('app_logout') }}"><i class="fas fa-sign-out-alt mr-1"></i>Déconnexion</a>
                             </div>
                         </li>
 
@@ -75,28 +58,27 @@
             {% block body %}{% endblock %}
             <!--Pied de page-->
             <footer class=" row bg-dark">
-            <div class="col-12">
-                <h3 class="text-center my-3 text-light">Mes partenaires</h3>
-                <!--Fournisseurs-->
-                <nav class="col brands">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-12">
-                <h3 class="text-center my-3 text-light">Retrouvez-moi sur les réseaux sociaux</h3>
-                <!--Liens vers les réseaux sociaux-->
-                <nav class="row nav justify-content-center sn-links">
-                    <a class="nav-link" href="https://fr-fr.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                    <a class="nav-link" href="https://www;instagram.com/h1=fr" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a class="nav-link" href="https://twitter.com/explore"><i class="fab fa-twitter-square" target="_blank"></i></a>
-                </nav>
-            </div>
+                <div class="col-12">
+                    <h3 class="text-center my-3 text-light">Mes partenaires</h3>
+                    <!--Fournisseurs-->
+                    <nav class="col brands">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-12">
+                    <h3 class="text-center my-3 text-light">Retrouvez-moi sur les réseaux sociaux</h3>
+                    <!--Liens vers les réseaux sociaux-->
+                    <nav class="row nav justify-content-center sn-links">
+                        <a class="nav-link" href="https://fr-fr.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a class="nav-link" href="https://www;instagram.com/h1=fr" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="nav-link" href="https://twitter.com/explore" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                    </nav>
+                </div>
             </footer>
-        </div>
 
         <!--Inclusions des fichiers JS-->
         <script src="{{asset('js/jQuery.js')}}"></script>

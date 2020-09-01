@@ -13,6 +13,7 @@
         "easycorp/easyadmin-bundle": "2.*",
         "exercise/htmlpurifier-bundle": "^3.0",
         "friendsofsymfony/ckeditor-bundle": "^2.2",
+        "fzaninotto/faker": "^1.9",
         "knplabs/knp-paginator-bundle": "^5.3",
         "phpdocumentor/reflection-docblock": "^5.1",
         "sensio/framework-extra-bundle": "^5.1",
@@ -42,6 +43,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
         "symfony/browser-kit": "^4.4",
         "symfony/css-selector": "^4.4",
         "symfony/debug-bundle": "^4.4",

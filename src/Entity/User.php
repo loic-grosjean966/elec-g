@@ -54,21 +54,6 @@ class User implements UserInterface
     private $firstname;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $postalAddress;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $postalCode;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $city;
-
-    /**
      * @ORM\OneToMany(targetEntity=Opinion::class, mappedBy="author")
      */
     private $opinions;
@@ -202,41 +187,7 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPostalAddress(): ?string
-    {
-        return $this->postalAddress;
-    }
 
-    public function setPostalAddress(string $postalAddress): self
-    {
-        $this->postalAddress = $postalAddress;
-
-        return $this;
-    }
-
-    public function getPostalCode(): ?string
-    {
-        return $this->postalCode;
-    }
-
-    public function setPostalCode(string $postalCode): self
-    {
-        $this->postalCode = $postalCode;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Opinion[]

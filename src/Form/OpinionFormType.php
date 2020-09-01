@@ -22,7 +22,7 @@ class OpinionFormType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label'=> 'titre',
+                'label'=> 'Titre',
                 'attr' => [
                     'placeholder' => 'Que pensez-vous d\'Elec-G ?'
                 ],
@@ -36,7 +36,7 @@ class OpinionFormType extends AbstractType
                 ]
             ])
             ->add('mark', ChoiceType::class, [
-                'label' => 'Noter la prestation',
+                'label' => 'Note',
                 'choices' => [
                     '0' => 0,
                     '1' => 1,

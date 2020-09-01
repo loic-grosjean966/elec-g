@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}| Se connecter{% endblock %}
 
 {% block body %}
+
+{# Affichage des messages flashs de type "success" si il y en a #}
+{% include 'partials/flashes/success.html.twig' %}
+{# Affichage des messages flashs de type "error" si il y en a #}
+{% include 'partials/flashes/error.html.twig' %}
+
 <div class="row bg-login">
     <form class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-12 my-5 form-overlay" method="post">
         {% if error %}

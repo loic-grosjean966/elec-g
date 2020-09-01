@@ -17,6 +17,7 @@ class MainController extends AbstractController
 {
     /**
      * @Route("/", name="accueil")
+     * Cette méthode permet de générer la vue d'accueil ainsi que le formulaire d'avis, la zone d'affichage des avis
      */
     public function index(Request $request, PaginatorInterface $paginator)
     {
@@ -69,14 +70,14 @@ class MainController extends AbstractController
         // Récupération du manager des entités
         $em = $this->getDoctrine()->getManager();
 
-        // Création d'une requête qui servira au paginator pour récupérer les articles de la page courante
+        // Création d'une requête qui servira au paginator pour récupérer les avis de la page courante
         $query = $em->createQuery('SELECT a FROM App\Entity\Opinion a');
 
         // On stocke dans $pageArticles les 10 articles de la page demandée dans l'URL
         $opinions = $paginator->paginate(
             $query,     // Requête de selection des articles en BDD
-            $requestedPage,     // Numéro de la page dont on veux les articles
-            5     // Nombre d'articles par page
+            $requestedPage,     // Numéro de la page dont on veux les avis
+            6     // Nombre d'avis par page
         );
 
         return $this->render('main/index.html.twig', [
@@ -85,5 +86,13 @@ class MainController extends AbstractController
             'opinions' => $opinions,
             'opinionForm' => $opinionForm->createView()
         ]);
+    }
+
+    /**
+     * @Route("/contact-us", name="contactez_nous")
+     */
+    public function contact()
+    {
+        return $this->render('main/contact.html.twig', []);
     }
 }
