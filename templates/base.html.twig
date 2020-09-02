@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <!--Inclusion du fichier CSS minifié de Bootstrap-->
         <link rel="stylesheet" href="{{ asset('css/Bootstrap-css/bootstrap.min.css') }}">
+        <!--Inclusion de font awesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -59,23 +61,13 @@
             <!--Pied de page-->
             <footer class=" row bg-dark">
                 <div class="col-12">
-                    <h3 class="text-center my-3 text-light">Mes partenaires</h3>
-                    <!--Fournisseurs-->
-                    <nav class="col brands">
+                    <h3 class="text-center my-3 text-light">À propos d'Elec-G</h3>
+                    <nav id="row about-elecg">
                         <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li><a href="">Mentions légales</a></li>
+                            <li><a href="">Politique de confidentialité</a></li>
+                            <li><a href=""></a></li>
                         </ul>
-                    </nav>
-                </div>
-                <div class="col-12">
-                    <h3 class="text-center my-3 text-light">Retrouvez-moi sur les réseaux sociaux</h3>
-                    <!--Liens vers les réseaux sociaux-->
-                    <nav class="row nav justify-content-center sn-links">
-                        <a class="nav-link" href="https://fr-fr.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                        <a class="nav-link" href="https://www;instagram.com/h1=fr" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a class="nav-link" href="https://twitter.com/explore" target="_blank"><i class="fab fa-twitter-square"></i></a>
                     </nav>
                 </div>
             </footer>
