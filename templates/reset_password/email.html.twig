@@ -1,0 +1,11 @@
+<h1>Bonjour</h1>
+
+<p>
+    Pour réinitialser votre mot de passe, cliquez 
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">here</a>
+    Ce lien expirera dans {{ tokenLifetime|date('g') }} heure(s)..
+</p>
+
+<p>
+    à bientôt sur Elec-G.fr
+</p>

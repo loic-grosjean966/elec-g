@@ -21,6 +21,9 @@ h1, h2, h3{
 .prestation-title{
     color: aqua;
 }
+.contact-link{
+    color: #7ED9F5;
+}
 
 .links{
     font-family: Teko-Regular, sans-serif;
@@ -33,7 +36,7 @@ h1, h2, h3{
 }
 /*Couleur de fond et différents types d'overlays*/
 .block-overlay{
-    background:rgba(0, 0, 0, 0.45);
+    background:rgba(0, 0, 0, 0.75);
     color: white;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -42,8 +45,18 @@ h1, h2, h3{
     -o-border-radius: 10px;
 }
 .form-overlay{
-    height: 350px;
-    background:rgba(0, 0, 0, 0.45);
+    min-height: 200px;
+    background:rgba(0, 0, 0, 0.65);
+    color: white;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.login-overlay{
+    height: 410px;
+    background:rgba(0, 0, 0, 0.65);
     color: white;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -70,35 +83,29 @@ h1, h2, h3{
 .banner-text{
     height: 150px;
 }
-/*Mes prestations*/
+/*Section prestations*/
 #prestation{
     background-color: #00060a;
     background-image: linear-gradient(298deg, #00060a 34%, #81defb 65%, #0e0a0a 91%);
 }
 /*Cartes de prestations*/
-.card-body{
+.prestation-card-body{
     height: 250px;
 }
+
 /*Section des avis*/
 #opinion{
     background-image: url('../images/light-bulbs-1875384_1920.jpg');
     background-size: cover;
     min-height: 150px;
 }
-
-/*Pied de page*/
-.sn-links{
-    color: snow;
-    font-size: 2em;
+/*Cartes d'avis*/
+.opinion-card-body{
+    height: 150px;
+    opacity: 0,5;
 }
-.fa-facebook-square{
-    font-size: 2rem;
-}
-.fa-instagram{
-    font-size: 2rem;
-}
-.fa-twitter-square{
-    font-size: 2rem;
+.opinion-text{
+    color: #7ED9F5;
 }
 
 /*Optimisation d'affichage*/
@@ -114,7 +121,6 @@ h1, h2, h3{
     background-size: cover;
 }
 .bg-login{
-    height: 600px;
     background-image: url('../images/electrician-1080586_1920.jpg');
     background-size: cover;
 }

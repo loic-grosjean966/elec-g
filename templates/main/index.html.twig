@@ -25,7 +25,7 @@
             <div class="col mb-3">
               <div class="card bg-dark text-white">
                 <img src="images/boulangerie.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="prestation-card-body card-body">
                   <h3 class="prestation-title card-title text-center">Installation</h3>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda libero qui deleniti quasi sunt dolores cupiditate modi? Excepturi, omnis accusamus rerum at facere veniam quaerat odio incidunt optio. Natus, corrupti.</p>
                 </div>
@@ -34,7 +34,7 @@
             <div class="col mb-3">
               <div class="card bg-dark text-white">
                 <img src="images/compteur_electrique.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="prestation-card-body card-body">
                   <h3 class="prestation-title card-title text-center">Rénovation</h3>
                   <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit atque tenetur doloremque error facere nobis dolor, soluta non molestias fuga quia placeat blanditiis quam optio. Ratione delectus voluptatibus nisi?</p>
                 </div>
@@ -43,7 +43,7 @@
             <div class="col mb-3">
               <div class="card bg-dark text-white">
                 <img src="images/electrician-1968983_1920.png" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="prestation-card-body card-body">
                   <h3 class="prestation-title card-title text-center">Dépannage</h3>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
                 </div>
@@ -52,7 +52,7 @@
             <div class="col mb-3">
                 <div class="card bg-dark text-white">
                   <img src="images/Motorisation-Portail-Battant-BSR-002.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
+                  <div class="prestation-card-body card-body">
                     <h3 class="prestation-title card-title text-center">Automatisme</h3>
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
                   </div>
@@ -61,7 +61,7 @@
             <div class="col mb-3">
               <div class="card bg-dark text-white">
                 <img src="images/smart-home-3920905_1920.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="prestation-card-body card-body">
                   <h3 class="prestation-title card-title text-center">Domotique</h3>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
                 </div>
@@ -70,7 +70,7 @@
             <div class="col mb-3">
               <div class="card bg-dark text-white">
                 <img src="images/cctv-4440994_1920.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="prestation-card-body card-body">
                   <h3 class="prestation-title card-title text-center">Télésurveillance</h3>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam voluptatem, rerum repellat praesentium quisquam minima voluptas cumque perspiciatis dolorum maiores nisi consequuntur maxime explicabo reiciendis animi harum veritatis sed. Ipsa?.</p>
                 </div>
@@ -79,7 +79,7 @@
             <div class="col mb-3">
               <div class="card bg-dark text-white">
                 <img src="images/coffret-de-chantier-pre-equipe-monophase-triphase.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
+                <div class="prestation-card-body card-body">
                   <h3 class="prestation-title card-title text-center">Location de coffrets de chantier</h3>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa odio dolorem in incidunt dignissimos. Nisi, ea eos, consequuntur dolores voluptate odit repellendus obcaecati suscipit necessitatibus excepturi dolore, rerum odio nostrum.</p>
                 </div>
@@ -101,21 +101,30 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
       {% for opinion in opinions %}
       <div class="col mb-3">
-        <div class="card border-dark">
-          <div class="card-header">
-            <p class="text-info"><i class="fas fa-user mx-1"></i> {{ opinion.author.firstname }} {{ opinion.author.lastname }}</p>
-            <p class="text-primary">
-              {% if opinion.mark >= 3 %}
-                <strong class="text-success">{{ opinion.mark }}</strong>/5
-              {% else %}
-                <strong class="text-danger">{{ opinion.mark }}</strong>/5
+        <div class="card bg-dark">
+          <div class="d-flex justify-content-between card-header">
+            <p class="text-light"><i class="fas fa-user mx-1"></i> {{ opinion.author.firstname }} {{ opinion.author.lastname|excerpt(1) }}</p>
+            <p class="text-warning">
+              {% if opinion.mark == 1 %}
+                <i class="fas fa-star"></i>
+              {% elseif opinion.mark == 2 %}
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+              {% elseif opinion.mark == 3 %}
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              {% elseif opinion.mark == 4 %}
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              {% elseif opinion.mark == 5 %}
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
               {% endif %}
             </p>
           </div>
-          <div class="card-body text-info">
-            <h3 class="card-title">{{ opinion.title }}</h3>
+          <div class="opinion-card-body card-body text-light">
+            <h3 class="card-title opinion-text">{{ opinion.title }}</h3>
             <p class="card-text">{{ opinion.content|purify }}</p>
-            <p>Publié le <strong>{{ opinion.publicationDate|date('d/m/Y à H\\hi') }}</strong></p>
+            
+          </div>
+          <div class="card-footer">
+            <p>Publié le <strong class="opinion-text">{{ opinion.publicationDate|date('d/m/Y à H\\hi') }}</strong></p>
           </div>
         </div>
       </div>

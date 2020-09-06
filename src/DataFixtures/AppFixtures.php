@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
 
         // Boucle de 10 itérations
-        for($i = 1; $i <= 10; $i++){
+        for($i = 1; $i <= 12; $i++){
 
             // Création d'un nouvel user
             $newUser = new User();
@@ -48,7 +48,7 @@ class AppFixtures extends Fixture
             $users[] = $newUser;
         }
             // Boucle de 10 itérations
-            for($i = 1; $i <= 10; $i++){
+            for($i = 1; $i <= 12; $i++){
 
             // Création d'un nouvel avis
             $newOpinion = new Opinion();
@@ -58,7 +58,7 @@ class AppFixtures extends Fixture
                 ->setAuthor($faker->randomElement($users))
                 ->setTitle( $faker->sentence) // Phrase aléatoire
                 ->setMark($faker->numberBetween($min = 1, $max = 5))
-                ->setContent( $faker->paragraph(1) ) // Paragraphe de 1 phrase aléatoire
+                ->setContent( $faker->sentence ) // Paragraphe de 1 phrase aléatoire
                 ->setPublicationDate( $faker->dateTimeBetween('-5years', 'now') )   // Date aléatoire entre il y a 5 ans et maintenant
             ;
 

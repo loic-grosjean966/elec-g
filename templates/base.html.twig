@@ -1,6 +1,6 @@
 {% set currentRoute = app.request.attributes.get('_route') %}
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="fr-FR" class="h-100">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body class="h-100">
         <div class="container-fluid">
             <!--Navbar-->
             <nav class="row navbar navbar-expand-lg navbar-dark bg-elec-g">
@@ -58,20 +58,20 @@
                 </div>
             </nav>
             {% block body %}{% endblock %}
-            <!--Pied de page-->
-            <footer class=" row bg-dark">
-                <div class="col-12">
-                    <h3 class="text-center my-3 text-light">À propos d'Elec-G</h3>
-                    <nav id="row about-elecg">
-                        <ul>
-                            <li><a href="">Mentions légales</a></li>
-                            <li><a href="">Politique de confidentialité</a></li>
-                            <li><a href=""></a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </footer>
-
+        </div>
+        <!--Pied de page-->
+        <footer class="footer mb-0 py-3 bg-dark">
+            <div class="container-fluid">
+                <h3 class="text-center my-3 text-light">À propos d'Elec-G</h3>
+                <nav class="row d-flex" id="about-elecg">
+                    <ul>
+                        <li><a href="">Mentions légales et politique de confidentialité</a></li>
+                        <li><a href="">CGU</a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
         <!--Inclusions des fichiers JS-->
         <script src="{{asset('js/jQuery.js')}}"></script>
         <script src="{{asset('js/Popper.js')}}"></script>

@@ -34,6 +34,14 @@ easy_admin:
                     - {property: 'firstname', label: 'Prénom'}
                     - {property: 'lastname', label: 'Nom de famille'}
                     - {property: 'verified', label: 'Email confirmé'}
+            new:
+                title: 'Créer un nouveau compte'
+                fields:
+                    - {property: 'firstname', label: 'Prénom'}
+                    - {property: 'lastname', label: 'Nom de famille'}
+                    - {property: 'email', type: 'email', label: 'Adresse Email'}
+                    - {property: 'verified', label: 'Email confirmé'}
+
         Opinion:
             class: App\Entity\Opinion
             label: 'Avis'
@@ -42,6 +50,19 @@ easy_admin:
                 sort: ['publicationDate', DESC]
                 fields:
                     - {property: 'id', label: 'ID'}
+                    - {property: 'author', label: 'Auteur'}
+                    - {property: 'title', label: 'Titre'}
+                    - {property: 'mark' , label: 'Note'}
+                    - {property: 'content', label: 'Contenu'}
+                    - {property: 'publicationDate', label: 'Date'}
+            edit:
+                title: 'Modifier un avis'
+                fields:
+                    - {property: 'title', label: 'Titre'}
+                    - {property: 'content', label: 'Contenu'}
+            new:
+                title: 'Créer un avis'
+                fields:
                     - {property: 'author', label: 'Auteur'}
                     - {property: 'title', label: 'Titre'}
                     - {property: 'mark' , label: 'Note'}

@@ -7,8 +7,8 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <div class="row bg-register">
-        <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-sm-12 block-overlay my-5">
+    <main class="row bg-register">
+        <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-sm-12 form-overlay my-5">
             <h1 class="text-center my-2">Formulaire d'inscription</h1>
             {{ form_start(registrationForm) }}
                 {{ form_row(registrationForm.lastname) }}
@@ -16,10 +16,10 @@
                 {{ form_row(registrationForm.email) }}
                 {{ form_row(registrationForm.plainPassword) }}
                 <div class="row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6">
                         {{ form_row(registrationForm.agreeTerms) }}
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-6">
                         <div class="g-recaptcha" data-sitekey="{{ google_recaptcha_site_key }}"></div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 {{ form_row(registrationForm.save) }}
             {{ form_end(registrationForm)}}
         </div>
-    </div>
+    </main>
     
 
 {% endblock %}
